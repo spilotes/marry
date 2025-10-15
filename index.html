@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mariana — 40 Primaveras</title>
+    <style>
+      /* ======= ESTILO GERAL ======= */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+      }
+
+      body {
+        background: linear-gradient(180deg, #ffeef2, #e3f6f5, #f7e6ff);
+        overflow-x: hidden;
+        color: #3c1414;
+      }
+
+      h1, h2, h3, p {
+        text-align: center;
+      }
+
+      .container {
+        padding: 4rem 2rem;
+        position: relative;
+        z-index: 2;
+      }
+
+      /* ======= CABEÇALHO ======= */
+      header {
+        text-align: center;
+        padding: 3rem 1rem;
+        background: rgba(255, 255, 255, 0.5);
+        backdrop-filter: blur(10px);
+        border-bottom: 2px solid rgba(60, 20, 20, 0.2);
+        animation: fadeIn 3s ease;
+      }
+
+      header h1 {
+        font-family: 'Dancing Script', cursive;
+        font-size: 3rem;
+        color: #3c1414;
+      }
+
+      header p {
+        font-size: 1.2rem;
+        color: #5e2a2a;
+        margin-top: 0.5rem;
+      }
+
+      /* ======= SEÇÃO PRINCIPAL ======= */
+      section {
+        margin: 3rem auto;
+        max-width: 800px;
+        background: rgba(255, 255, 255, 0.6);
+        border-radius: 1.5rem;
+        padding: 2rem;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(10px);
+        animation: floatUp 2.5s ease;
+      }
+
+      section h2 {
+        font-family: 'Dancing Script', cursive;
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        color: #3c1414;
+      }
+
+      section p {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        color: #4b2b2b;
+      }
+
+      /* ======= GALERIA DE FOTOS ======= */
+      .gallery {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+        margin-top: 2rem;
+      }
+
+      .photo-placeholder {
+        width: 180px;
+        height: 180px;
+        background: rgba(255, 255, 255, 0.7);
+        border: 2px dashed #3c1414;
+        border-radius: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-style: italic;
+        color: #3c1414;
+      }
+
+      /* ======= RODAPÉ ======= */
+      footer {
+        text-align: center;
+        margin-top: 3rem;
+        padding: 1rem;
+        font-size: 0.9rem;
+        color: #3c1414;
+      }
+
+      /* ======= ANIMAÇÕES ======= */
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+
+      @keyframes floatUp {
+        from {
+          opacity: 0;
+          transform: translateY(40px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* ======= FLORES ANIMADAS ======= */
+      .flower {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background: radial-gradient(circle, #f7a8b8 40%, transparent 70%);
+        border-radius: 50%;
+        animation: float 10s linear infinite;
+        opacity: 0.8;
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(0) rotate(0);
+        }
+        100% {
+          transform: translateY(-120vh) rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h1>🎨 Feliz 40 Primaveras, Mariana 🌸</h1>
+      <p>Hoje o mundo é mais colorido, porque você existe.</p>
+    </header>
+
+    <div class="container">
+      <section>
+        <h2>🌷 Para minha amada artista</h2>
+        <p>
+          Cada traço teu, Mariana, transforma o mundo.  
+          Tua arte é o reflexo da alma mais linda que já tocou a minha.  
+          Hoje celebramos não apenas teus 40 anos —  
+          mas todas as cores, emoções e vidas que você desperta em quem te ama.
+        </p>
+
+        <div class="gallery">
+          <div class="photo-placeholder">[Foto 1]</div>
+          <div class="photo-placeholder">[Foto 2]</div>
+          <div class="photo-placeholder">[Foto 3]</div>
+          <div class="photo-placeholder">[Foto 4]</div>
+        </div>
+      </section>
+
+      <section>
+        <h2>💖 Uma vida que inspira</h2>
+        <p>
+          Pintora, mulher, companheira, força suave e riso livre —  
+          tua presença é poesia viva, e teu amor é minha melhor tela.  
+          Que teus 40 sejam uma explosão de luz, liberdade e sonhos realizados.
+        </p>
+      </section>
+
+      <section>
+        <h2>🌈 Te amo em todas as cores</h2>
+        <p>
+          Se eu pudesse traduzir o amor em aquarela,  
+          ele teria o tom do teu olhar e a textura do teu toque.  
+          Te amo — ontem, hoje e em todos os quadros que o tempo pintar.
+        </p>
+      </section>
+    </div>
+
+    <footer>
+      Feito com amor por Ricardo 🖤  
+      <br />  
+      <small>19 de novembro — o dia em que a arte sorriu.</small>
+    </footer>
+
+    <script>
+      // ======= FLORES FLUTUANTES =======
+      const colors = ['#f7a8b8', '#d8b4f8', '#b8f7d4', '#f9c6d2'];
+      for (let i = 0; i < 25; i++) {
+        const flower = document.createElement('div');
+        flower.classList.add('flower');
+        flower.style.left = Math.random() * 100 + 'vw';
+        flower.style.animationDuration = 8 + Math.random() * 6 + 's';
+        flower.style.background = `radial-gradient(circle, ${
+          colors[Math.floor(Math.random() * colors.length)]
+        } 40%, transparent 70%)`;
+        document.body.appendChild(flower);
+      }
+    </script>
+  </body>
+</html>

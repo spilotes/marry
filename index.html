@@ -82,4 +82,213 @@
         color: #3c1414;
       }
 
-      s
+      section p {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        color: #4b2b2b;
+      }
+
+      /* ====== GALERIA ====== */
+      .gallery {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1.5rem;
+        margin-top: 2rem;
+      }
+
+      .photo-container {
+        position: relative;
+        width: 200px;
+        height: 200px;
+        border-radius: 1rem;
+        overflow: hidden;
+        cursor: pointer;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease;
+      }
+
+      .photo-container:hover {
+        transform: scale(1.05);
+      }
+
+      .photo-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.6s ease;
+      }
+
+      /* ====== EXPANSÃO DA FOTO ====== */
+      .expanded {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.8);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+        backdrop-filter: blur(5px);
+        animation: fadeIn 0.5s ease;
+      }
+
+      .expanded img {
+        max-width: 90vw;
+        max-height: 90vh;
+        border-radius: 1rem;
+        box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+        transform: scale(1);
+        animation: zoomIn 0.4s ease;
+      }
+
+      /* ====== RODAPÉ ====== */
+      footer {
+        text-align: center;
+        margin-top: 4rem;
+        padding: 2rem 1rem;
+        color: #3c1414;
+        background: rgba(255, 255, 255, 0.5);
+        backdrop-filter: blur(10px);
+        font-size: 0.9rem;
+        box-shadow: 0 -3px 20px rgba(0, 0, 0, 0.05);
+        animation: fadeUp 2s ease;
+      }
+
+      /* ====== FLORES ====== */
+      .flower {
+        position: absolute;
+        width: 25px;
+        height: 25px;
+        background: radial-gradient(circle, #f7a8b8 40%, transparent 70%);
+        border-radius: 50%;
+        animation: float 14s linear infinite;
+        opacity: 0.75;
+        z-index: 1;
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(0) rotate(0);
+          opacity: 0.8;
+        }
+        100% {
+          transform: translateY(-120vh) rotate(360deg);
+          opacity: 0;
+        }
+      }
+
+      /* ====== ANIMAÇÕES ====== */
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+
+      @keyframes fadeUp {
+        from { opacity: 0; transform: translateY(30px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      @keyframes fadeDown {
+        from { opacity: 0; transform: translateY(-30px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      @keyframes zoomIn {
+        from { transform: scale(0.7); opacity: 0; }
+        to { transform: scale(1); opacity: 1; }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h1>🎨 Feliz 40 Primaveras, Mariana 🌸</h1>
+      <p>Quarenta anos de cor, poesia e amor — a tua arte é o próprio tempo pintando.</p>
+    </header>
+
+    <main class="container">
+      <section>
+        <h2>🌷 Para minha artista</h2>
+        <p>
+          Mariana, cada traço teu dá vida ao invisível.  
+          Tua sensibilidade é uma ponte entre o sonho e o real —  
+          e cada cor que escolhes é uma nova forma de amar o mundo.  
+          Hoje celebramos não apenas o teu aniversário,  
+          mas o privilégio de existir ao teu lado.
+        </p>
+
+        <div class="gallery">
+          <div class="photo-container">
+            <img src="foto1.jpg" alt="Foto 1 - Mariana" />
+          </div>
+          <div class="photo-container">
+            <img src="foto2.jpg" alt="Foto 2 - Mariana" />
+          </div>
+          <div class="photo-container">
+            <img src="foto3.jpg" alt="Foto 3 - Mariana" />
+          </div>
+          <div class="photo-container">
+            <img src="foto4.jpg" alt="Foto 4 - Mariana" />
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>💖 A mulher que inspira</h2>
+        <p>
+          Tuas mãos criam mundos, teus olhos revelam o belo,  
+          e teu coração pulsa como um universo em aquarela.  
+          Que teus 40 anos sejam o início de uma nova tela —  
+          ainda mais livre, intensa e cheia de luz.
+        </p>
+      </section>
+
+      <section>
+        <h2>🌈 Para sempre, tua cor favorita</h2>
+        <p>
+          Se a vida fosse um quadro, você seria o brilho no centro.  
+          Te amo — em cada pincelada, em cada silêncio,  
+          em cada respiração que divide o mesmo horizonte comigo.
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      <p>Com amor, teu Ricardo 🖤<br /><small>19 de novembro — o dia em que a arte sorriu.</small></p>
+    </footer>
+
+    <script>
+      // ====== FLORES ANIMADAS ======
+      const colors = ['#f7a8b8', '#e8b4f8', '#b8f7d4', '#f9c6d2'];
+      for (let i = 0; i < 30; i++) {
+        const flower = document.createElement('div');
+        flower.classList.add('flower');
+        flower.style.left = Math.random() * 100 + 'vw';
+        flower.style.animationDuration = 10 + Math.random() * 8 + 's';
+        flower.style.background = `radial-gradient(circle, ${
+          colors[Math.floor(Math.random() * colors.length)]
+        } 40%, transparent 70%)`;
+        document.body.appendChild(flower);
+      }
+
+      // ====== EXPANDIR E FECHAR FOTOS ======
+      const photos = document.querySelectorAll('.photo-container img');
+      photos.forEach(photo => {
+        photo.addEventListener('click', () => {
+          const overlay = document.createElement('div');
+          overlay.classList.add('expanded');
+          const clone = photo.cloneNode(true);
+          overlay.appendChild(clone);
+          document.body.appendChild(overlay);
+
+          overlay.addEventListener('click', (e) => {
+            if (e.target === overlay) overlay.remove();
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

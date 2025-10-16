@@ -1,226 +1,294 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Para Mariana — Minha Artista</title>
-  <style>
-    :root {
-      --cor-principal: #3c1414;
-      --cor-principal-escura: #2b0e0e;
-      --cor-texto: #3c3c3c;
-      --cor-fundo: #fff8f6;
-      --cor-agua: rgba(220, 240, 255, 0.5);
-      --cor-rosa: rgba(255, 200, 220, 0.5);
-      --cor-roxa: rgba(230, 200, 255, 0.4);
-    }
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mariana — 40 Primaveras</title>
 
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: var(--cor-fundo);
-      color: var(--cor-texto);
-      overflow-x: hidden;
-      transition: background 1s, color 1s;
-    }
-
-    /* Fundo com efeito aquarela */
-    .aquarela {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 120%;
-      height: 120%;
-      background: radial-gradient(circle at 20% 30%, var(--cor-agua), transparent 40%),
-                  radial-gradient(circle at 70% 60%, var(--cor-rosa), transparent 40%),
-                  radial-gradient(circle at 90% 20%, var(--cor-roxa), transparent 50%);
-      filter: blur(80px);
-      animation: flutuar 20s ease-in-out infinite alternate;
-      z-index: -1;
-    }
-
-    @keyframes flutuar {
-      from { transform: scale(1) translateY(0); }
-      to { transform: scale(1.2) translateY(-30px); }
-    }
-
-    header {
-      text-align: center;
-      padding: 5vh 2rem;
-    }
-
-    header h1 {
-      font-family: 'Nanum Pen Script', cursive;
-      font-size: 3.5rem;
-      color: var(--cor-principal);
-      text-shadow: 1px 1px 5px rgba(0,0,0,0.1);
-      animation: aparecer 2s ease forwards;
-    }
-
-    /* Imagem principal */
-    .imagem-principal {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-top: 5vh;
-      height: 90vh;
-    }
-
-    .imagem-principal img {
-      width: 350px;
-      height: 350px;
-      object-fit: cover;
-      border-radius: 50%;
-      cursor: pointer;
-      box-shadow: 0 0 25px rgba(0,0,0,0.2);
-      transition: transform 0.4s ease;
-    }
-
-    .imagem-principal img:hover {
-      transform: scale(1.05);
-    }
-
-    /* Imagem expandida */
-    .imagem-expandida {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%) scale(0);
-      max-width: 90vw;
-      max-height: 90vh;
-      border-radius: 20px;
-      box-shadow: 0 0 50px rgba(0,0,0,0.6);
-      z-index: 100;
-      transition: transform 0.4s ease;
-    }
-
-    .imagem-expandida.ativa {
-      transform: translate(-50%, -50%) scale(1);
-    }
-
-    /* Container principal */
-    .container {
-      margin-top: 105vh;
-      padding: 5vh 10vw;
-      text-align: center;
-    }
-
-    .container h2 {
-      font-family: 'Nanum Pen Script', cursive;
-      font-size: 2.8rem;
-      color: var(--cor-principal);
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 1s ease, transform 1s ease;
-    }
-
-    .container p {
-      font-size: 1.2rem;
-      line-height: 1.7;
-      color: var(--cor-texto);
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 1s ease, transform 1s ease;
-    }
-
-    .visivel {
-      opacity: 1 !important;
-      transform: translateY(0) !important;
-    }
-
-    /* Modo noturno artístico */
-    body.modo-noturno {
-      background: var(--cor-principal-escura);
-      color: #f0eaea;
-    }
-
-    body.modo-noturno header h1 {
-      color: #f9dede;
-      text-shadow: 0 0 10px #ffb3b3;
-    }
-
-    .botao-modo {
-      position: fixed;
-      top: 2vh;
-      right: 2vw;
-      background: var(--cor-principal);
-      border: none;
-      border-radius: 50%;
-      width: 55px;
-      height: 55px;
-      cursor: pointer;
-      color: white;
-      font-size: 1.3rem;
-      box-shadow: 0 0 15px rgba(0,0,0,0.3);
-      transition: transform 0.3s ease;
-    }
-
-    .botao-modo:hover {
-      transform: rotate(20deg) scale(1.1);
-    }
-
-    @keyframes aparecer {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-  </style>
-</head>
-<body>
-  <div class="aquarela"></div>
-
-  <button class="botao-modo" id="toggleMode">🎨</button>
-
-  <header>
-    <h1>Feliz Aniversário, Mariana 💖</h1>
-  </header>
-
-  <div class="imagem-principal">
-    <img src="img/mariana.jpg" alt="Mariana - artista" id="fotoPrincipal">
-  </div>
-
-  <img src="img/mariana.jpg" class="imagem-expandida" id="fotoExpandida" alt="Mariana grande">
-
-  <div class="container">
-    <h2>para a minha artista</h2>
-    <p>
-      Hoje o mundo ganha novas cores.  
-      Cores que nascem das tuas mãos, do teu olhar, do teu riso.  
-      Mariana — és aquarela viva, pincel de alma e vento de criação.  
-      Que teus 40 sejam um quadro pintado de amor, liberdade e beleza.
-    </p>
-  </div>
-
-  <script>
-    // Alternar modo noturno
-    const botaoModo = document.getElementById("toggleMode");
-    botaoModo.addEventListener("click", () => {
-      document.body.classList.toggle("modo-noturno");
-    });
-
-    // Animações ao rolar (frases poéticas)
-    const elementos = document.querySelectorAll(".container h2, .container p");
-    window.addEventListener("scroll", () => {
-      elementos.forEach(el => {
-        const topo = el.getBoundingClientRect().top;
-        if (topo < window.innerHeight - 100) {
-          el.classList.add("visivel");
-        }
-      });
-    });
-
-    // Expansão de imagem
-    const foto = document.getElementById("fotoPrincipal");
-    const expandida = document.getElementById("fotoExpandida");
-
-    foto.addEventListener("click", () => {
-      expandida.classList.add("ativa");
-    });
-
-    expandida.addEventListener("click", (e) => {
-      if (e.target === expandida) {
-        expandida.classList.remove("ativa");
+    <style>
+      /* ====== RESET E BASE ====== */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
       }
-    });
-  </script>
-</body>
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(180deg, #fdf7f8, #f3e9f9, #e3f6f5);
+        overflow-x: hidden;
+        color: #3c1414;
+        position: relative;
+        min-height: 100vh;
+      }
+
+      h1, h2, p {
+        text-align: center;
+      }
+
+      /* ====== CABEÇALHO ====== */
+      header {
+        text-align: center;
+        padding: 4rem 2rem 3rem 2rem;
+        position: relative;
+        background: rgba(255, 255, 255, 0.6);
+        backdrop-filter: blur(12px);
+        border-bottom: 2px solid rgba(60, 20, 20, 0.15);
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        z-index: 2;
+        animation: fadeDown 2s ease;
+      }
+
+      header h1 {
+        font-family: "Dancing Script", cursive;
+        font-size: 3.5rem;
+        color: #3c1414;
+      }
+
+      header p {
+        font-size: 1.2rem;
+        color: #5e2a2a;
+        margin-top: 0.8rem;
+      }
+
+      /* ====== CONTEÚDO ====== */
+      .container {
+        position: relative;
+        z-index: 2;
+        padding: 2rem;
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+
+      section {
+        margin: 3rem auto;
+        background: rgba(255, 255, 255, 0.6);
+        border-radius: 1.5rem;
+        padding: 2.5rem;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+        backdrop-filter: blur(10px);
+        transition: transform 0.3s ease;
+        animation: fadeUp 2s ease;
+      }
+
+      section:hover {
+        transform: translateY(-4px);
+      }
+
+      section h2 {
+        font-family: "Dancing Script", cursive;
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        color: #3c1414;
+      }
+
+      section p {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        color: #4b2b2b;
+      }
+
+      /* ====== GALERIA ====== */
+      .gallery {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1.5rem;
+        margin-top: 2rem;
+      }
+
+      .photo-container {
+        position: relative;
+        width: 200px;
+        height: 200px;
+        border-radius: 1rem;
+        overflow: hidden;
+        cursor: pointer;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease;
+      }
+
+      .photo-container:hover {
+        transform: scale(1.05);
+      }
+
+      .photo-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.6s ease;
+      }
+
+      /* ====== EXPANSÃO DA FOTO ====== */
+      .expanded {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.8);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+        backdrop-filter: blur(5px);
+        animation: fadeIn 0.5s ease;
+      }
+
+      .expanded img {
+        max-width: 90vw;
+        max-height: 90vh;
+        border-radius: 1rem;
+        box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+        transform: scale(1);
+        animation: zoomIn 0.4s ease;
+      }
+
+      /* ====== RODAPÉ ====== */
+      footer {
+        text-align: center;
+        margin-top: 4rem;
+        padding: 2rem 1rem;
+        color: #3c1414;
+        background: rgba(255, 255, 255, 0.5);
+        backdrop-filter: blur(10px);
+        font-size: 0.9rem;
+        box-shadow: 0 -3px 20px rgba(0, 0, 0, 0.05);
+        animation: fadeUp 2s ease;
+      }
+
+      /* ====== FLORES ====== */
+      .flower {
+        position: absolute;
+        width: 25px;
+        height: 25px;
+        background: radial-gradient(circle, #f7a8b8 40%, transparent 70%);
+        border-radius: 50%;
+        animation: float 14s linear infinite;
+        opacity: 0.75;
+        z-index: 1;
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(0) rotate(0);
+          opacity: 0.8;
+        }
+        100% {
+          transform: translateY(-120vh) rotate(360deg);
+          opacity: 0;
+        }
+      }
+
+      /* ====== ANIMAÇÕES ====== */
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+
+      @keyframes fadeUp {
+        from { opacity: 0; transform: translateY(30px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      @keyframes fadeDown {
+        from { opacity: 0; transform: translateY(-30px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      @keyframes zoomIn {
+        from { transform: scale(0.7); opacity: 0; }
+        to { transform: scale(1); opacity: 1; }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h1>🎨 Feliz 40 Primaveras, Mariana 🌸</h1>
+      <p>Quarenta anos de cor, poesia e amor — a tua arte é o próprio tempo pintando.</p>
+    </header>
+
+    <main class="container">
+      <section>
+        <h2>🌷 Para minha artista</h2>
+        <p>
+          Mariana, cada traço teu dá vida ao invisível.  
+          Tua sensibilidade é uma ponte entre o sonho e o real —  
+          e cada cor que escolhes é uma nova forma de amar o mundo.  
+          Hoje celebramos não apenas o teu aniversário,  
+          mas o privilégio de existir ao teu lado.
+        </p>
+
+        <div class="gallery">
+          <div class="photo-container">
+            <img src="foto1.jpg" alt="Foto 1 - Mariana" />
+          </div>
+          <div class="photo-container">
+            <img src="foto2.jpg" alt="Foto 2 - Mariana" />
+          </div>
+          <div class="photo-container">
+            <img src="foto3.jpg" alt="Foto 3 - Mariana" />
+          </div>
+          <div class="photo-container">
+            <img src="foto4.jpg" alt="Foto 4 - Mariana" />
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>💖 A mulher que inspira</h2>
+        <p>
+          Tuas mãos criam mundos, teus olhos revelam o belo,  
+          e teu coração pulsa como um universo em aquarela.  
+          Que teus 40 anos sejam o início de uma nova tela —  
+          ainda mais livre, intensa e cheia de luz.
+        </p>
+      </section>
+
+      <section>
+        <h2>🌈 Para sempre, tua cor favorita</h2>
+        <p>
+          Se a vida fosse um quadro, você seria o brilho no centro.  
+          Te amo — em cada pincelada, em cada silêncio,  
+          em cada respiração que divide o mesmo horizonte comigo.
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      <p>Com amor, teu Ricardo 🖤<br /><small>19 de novembro — o dia em que a arte sorriu.</small></p>
+    </footer>
+
+    <script>
+      // ====== FLORES ANIMADAS ======
+      const colors = ['#f7a8b8', '#e8b4f8', '#b8f7d4', '#f9c6d2'];
+      for (let i = 0; i < 30; i++) {
+        const flower = document.createElement('div');
+        flower.classList.add('flower');
+        flower.style.left = Math.random() * 100 + 'vw';
+        flower.style.animationDuration = 10 + Math.random() * 8 + 's';
+        flower.style.background = `radial-gradient(circle, ${
+          colors[Math.floor(Math.random() * colors.length)]
+        } 40%, transparent 70%)`;
+        document.body.appendChild(flower);
+      }
+
+      // ====== EXPANDIR E FECHAR FOTOS ======
+      const photos = document.querySelectorAll('.photo-container img');
+      photos.forEach(photo => {
+        photo.addEventListener('click', () => {
+          const overlay = document.createElement('div');
+          overlay.classList.add('expanded');
+          const clone = photo.cloneNode(true);
+          overlay.appendChild(clone);
+          document.body.appendChild(overlay);
+
+          overlay.addEventListener('click', (e) => {
+            if (e.target === overlay) overlay.remove();
+          });
+        });
+      });
+    </script>
+  </body>
 </html>
